@@ -3,14 +3,9 @@ pipeline {
 	stages {
 		stage('Setup') {
 			steps {
-			    sh "rm -rf .venv"
-			    sh "python3 -m virtualenv .venv"
-			    sh ". .venv/bin/activate"
-			    sh "ls -lah"
-			    sh "ls -lah .venv/bin"
-			    sh "pip3 --version"
-			    sh "pip --version"
-				sh "pip install -r requirements.txt"
+				sh "conda create -n test_env python=3.6 -y"
+				sh "conda activate test_env"
+			    sh "pip install -r requirements.txt"
 			}
 		}
 		stage('Build') {
