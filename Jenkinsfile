@@ -1,17 +1,19 @@
 pipeline {
-	stage('Setup') {
-		steps {
-			sh "pip install -r requirements.txt"
+	stages {
+		stage('Setup') {
+			steps {
+				sh "pip install -r requirements.txt"
+			}
 		}
-	}
-	stage('Build') {
-		steps {
-			sh "echo $USER"
+		stage('Build') {
+			steps {
+				sh "echo $USER"
+			}
 		}
-	}
-	stage('Test') {
-		steps {
-			sh "pytest"
+		stage('Test') {
+			steps {
+				sh "pytest"
+			}
 		}
 	}
 }
