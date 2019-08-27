@@ -1,12 +1,22 @@
 pipeline {
 	agent any {
 		stages {
+		    stage('Clone') {
+		        steps{
+    		    	checkout scm
+    		    }
+		    }
 			stage('Build') {
-				sh "echo $USER"
-				sh "python --version"
+			    steps {
+				    sh "echo $USER"
+				    sh "python --version"
+				    sh "pip install -r requirements.txt"
+				}
 			}
 			stage('Test') {
-				sh pytest
+			    steps {
+    				sh pytest
+    	        }
 			}
 		}
 	}
