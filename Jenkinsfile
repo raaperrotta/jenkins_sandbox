@@ -3,6 +3,7 @@ pipeline {
 	stages {
 		stage('Setup') {
 			steps {
+			    sh ". ~/.bashrc"
 				sh "conda create -n test_env python=3.6 -y"
 				sh "conda activate test_env"
 			    sh "pip install -r requirements.txt"
