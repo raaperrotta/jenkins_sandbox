@@ -1,0 +1,13 @@
+pipeline {
+	agent any {
+		stages {
+			stage('Build') {
+				sh "echo $USER"
+				sh "python --version"
+			}
+			stage('Test') {
+				sh pytest
+			}
+		}
+	}
+}
