@@ -6,6 +6,10 @@ pipeline {
 			    sh "rm -rf .venv"
 			    sh "python3 -m virtualenv .venv"
 			    sh ". .venv/bin/activate"
+			    sh "ls -lah"
+			    sh "ls -lah .venv/bin"
+			    sh "pip3 --version"
+			    sh "pip --version"
 				sh "pip install -r requirements.txt"
 			}
 		}
