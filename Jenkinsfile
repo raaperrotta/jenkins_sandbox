@@ -4,7 +4,7 @@ pipeline {
 		stage('Setup') {
 			steps {
 			    sh "pwd"
-			    sh ". /home/jenkins/.bashrc"
+			    sh "/miniconda/bin/conda init bash"
 			    sh "which python"
 				sh "python --version"
 				sh "conda create -n test_env python=3.6 -y"
