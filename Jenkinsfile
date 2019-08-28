@@ -4,22 +4,17 @@ pipeline {
 		stage('Setup') {
 			steps {
 			    sh "pwd"
-			    sh "/miniconda/bin/conda activate base"
-			    sh "which python"
-				sh "python --version"
-				sh "conda create -n test_env python=3.6 -y"
-				sh "conda activate test_env"
-			    sh "pip install -r requirements.txt"
+			    sh "ls -lah"
 			}
 		}
 		stage('Build') {
 			steps {
-				sh "echo $USER"
+			    sh "docker build --rm -t this ."
 			}
 		}
 		stage('Test') {
 			steps {
-				sh "pytest"
+				sh "docker run --rm this pytest"
 			}
 		}
 	}
