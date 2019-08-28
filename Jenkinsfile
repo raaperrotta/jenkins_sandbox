@@ -4,6 +4,7 @@ pipeline {
 		stage('Setup') {
 			steps {
 			    sh "pwd"
+			    sh ". /home/jenkins/.bashrc"
 			    sh "which python"
 				sh "python --version"
 				sh "conda create -n test_env python=3.6 -y"
