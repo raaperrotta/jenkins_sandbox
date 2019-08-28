@@ -3,7 +3,7 @@ pipeline {
 	stages {
 		stage('Setup') {
 			steps {
-			    sh "echo $USER"
+			    sh "pwd"
 			    sh "which python"
 				sh "python --version"
 				sh "conda create -n test_env python=3.6 -y"
