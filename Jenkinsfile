@@ -3,8 +3,7 @@ pipeline {
 	stages {
 		stage('Setup') {
 			steps {
-			    sh "pwd"
-			    sh "ls -lah"
+			    sh "groups"
 			}
 		}
 		stage('Build') {
